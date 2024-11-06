@@ -28,7 +28,7 @@ NTSTATUS KeWriteVirtualMemory(PEPROCESS Process, PVOID Source, PVOID Target, SIZ
 	__try {
 		ProbeForRead(Target, Size, (ULONG)Size);
 	} __except (EXCEPTION_EXECUTE_HANDLER) {
-		DbgPrint_("[KeReadVirtualMemory] Can't read at address 0x%p.\n", Target);
+		DbgPrint_("[KeWriteVirtualMemory] Can't write at address 0x%p.\n", Target);
 		return STATUS_ACCESS_VIOLATION;
 	}
 
